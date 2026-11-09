@@ -693,19 +693,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const bookingForm = document.getElementById('sacredBookingForm');
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('bookingNameInput').value;
-      const service = document.getElementById('bookingServiceSelect').value;
-      const format = document.getElementById('bookingFormatSelect').value;
+const bookingForm = document.getElementById('sacredBookingForm');
+
+if (bookingForm) {
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitButton = bookingForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton ? submitButton.textContent : "";
+
+    const booking = {
+      name: document.getElementById('bookingNameInput')?.value || "",
+      contact: document.getElementById('bookingContactInput')?.value || "",
+      service: document.getElementById('bookingServiceSelect')?.value || "",
+      format: document.getElementById('bookingFormatSelect')?.value || "",
+      dob: document.getElementById('bookingDobInput')?.value || "",
+      preferredDate: document.getElementById('bookingDateInput')?.value || "",
+      notes: document.getElementById('bookingNotesInput')?.value || ""
+    };
+
+    if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
+      showSacredToast("Booking system setup is not complete yet. Please try again later.");
+      return;
+    }
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      // Apps Script does not expose a normal browser CORS response.
+      // no-cors sends the booking while preventing the browser from reading its response.
+      await fetch(BOOKING_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(booking)
+      });
+
       closeBookingModal();
       playSacredChime(639);
-      showSacredToast(`Thank you, ${name}! Your ${service} (${format}) request with Roli is confirmed.`);
+      showSacredToast(
+        `Thank you, ${booking.name}! Your booking request has been submitted. Roli will contact you to confirm the session.`
+      );
       bookingForm.reset();
-    });
-  }
+    } catch (error) {
+      console.error("Booking submission failed:", error);
+      showSacredToast("We couldn't send your request. Please try again or contact us on Instagram.");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    }
+  });
+}
 
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
