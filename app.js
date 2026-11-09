@@ -692,7 +692,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (soundEnabled) playSacredChime(528);
     });
   }
-
+const BOOKING_ENDPOINT = if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/")) {
 const bookingForm = document.getElementById('sacredBookingForm');
 
 if (bookingForm) {
