@@ -692,8 +692,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (soundEnabled) playSacredChime(528);
     });
   }
-const BOOKING_ENDPOINT = if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/")) {
-const bookingForm = document.getElementById('sacredBookingForm');
+const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
+   const bookingForm = document.getElementById('sacredBookingForm');
 
 if (bookingForm) {
   bookingForm.addEventListener('submit', async (e) => {
@@ -712,8 +712,8 @@ if (bookingForm) {
       notes: document.getElementById('bookingNotesInput')?.value || ""
     };
 
-    if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec"; {
-      showSacredToast("Booking system setup is not complete yet. Please try again later.");
+if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
+   showSacredToast("Booking system setup is not complete yet. Please try again later.");
       return;
     }
 
