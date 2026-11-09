@@ -712,7 +712,7 @@ if (bookingForm) {
       notes: document.getElementById('bookingNotesInput')?.value || ""
     };
 
-    if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
+    if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec"; {
       showSacredToast("Booking system setup is not complete yet. Please try again later.");
       return;
     }
