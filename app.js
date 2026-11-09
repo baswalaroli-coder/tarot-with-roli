@@ -651,10 +651,7 @@ window.closeBookingModal = function() {
   const modal = document.getElementById('bookingModal');
   if (modal) modal.classList.remove('active');
 };
-const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
-const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec"; 
-const bookingForm = document.getElementById('sacredBookingForm');// 6. Initialize All Dynamic Views & Event Listeners
-if (bookingForm) {// --------------------------------------------------------------------------
+elect the damaged section from there to the final }); at the bottom of the file. --------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   renderHeaderComponents();
   renderTrustPillars();
@@ -724,7 +721,7 @@ if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
       }
 
       // Apps Script does not expose a normal browser CORS response.
-      // no-cors sends the booking while preventing the browser from reading its response.
+       / no-cors sends the booking while preventing the browser from reading its response.
       await fetch(BOOKING_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
