@@ -651,7 +651,7 @@ window.closeBookingModal = function() {
   const modal = document.getElementById('bookingModal');
   if (modal) modal.classList.remove('active');
 };
-
+const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
 const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec"; 
 const bookingForm = document.getElementById('sacredBookingForm');// 6. Initialize All Dynamic Views & Event Listeners
 if (bookingForm) {// --------------------------------------------------------------------------
