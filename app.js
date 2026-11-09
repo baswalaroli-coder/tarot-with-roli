@@ -653,8 +653,8 @@ window.closeBookingModal = function() {
 };
 
 const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec"; 
-// 6. Initialize All Dynamic Views & Event Listeners
-// --------------------------------------------------------------------------
+const bookingForm = document.getElementById('sacredBookingForm');// 6. Initialize All Dynamic Views & Event Listeners
+if (bookingForm) {// --------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   renderHeaderComponents();
   renderTrustPillars();
@@ -669,8 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const iconName = el.getAttribute('data-lucide');
     const size = el.getAttribute('data-size') || 16;
 if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/")) {
-   
-});
+   });
 
   const affirmBtn = document.getElementById('cycleAffirmationBtn');
   const affirmText = document.getElementById('affirmationText');
