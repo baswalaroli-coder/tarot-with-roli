@@ -690,78 +690,126 @@ if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/")) {
     });
   }
 const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
-   const bookingForm = document.getElementById('sacredBookingForm');
 
-if (bookingForm) {
-  bookingForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// --------------------------------------------------------------------------
+// 6. Initialize All Dynamic Views & Event Listeners
+// --------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeaderComponents();
+  renderTrustPillars();
+  renderServicesGrid();
+  renderCrystalPillars();
+  renderAboutAndInstagramItems();
+  renderFaqColumns();
+  renderFooterAndModalSelects();
+  renderOracleSpread();
 
-    const submitButton = bookingForm.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton ? submitButton.textContent : "";
-
-    const booking = {
-      name: document.getElementById('bookingNameInput')?.value || "",
-      contact: document.getElementById('bookingContactInput')?.value || "",
-      service: document.getElementById('bookingServiceSelect')?.value || "",
-      format: document.getElementById('bookingFormatSelect')?.value || "",
-      dob: document.getElementById('bookingDobInput')?.value || "",
-      preferredDate: document.getElementById('bookingDateInput')?.value || "",
-      notes: document.getElementById('bookingNotesInput')?.value || ""
-    };
-
-if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
-   showSacredToast("Booking system setup is not complete yet. Please try again later.");
-      return;
-    }
-
-    try {
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-      }
-
-      // Apps Script does not expose a normal browser CORS response.
-       / no-cors sends the booking while preventing the browser from reading its response.
-      await fetch(BOOKING_ENDPOINT, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(booking)
-      });
-
-      closeBookingModal();
-      playSacredChime(639);
-      showSacredToast(
-        `Thank you, ${booking.name}! Your booking request has been submitted. Roli will contact you to confirm the session.`
-      );
-      bookingForm.reset();
-    } catch (error) {
-      console.error("Booking submission failed:", error);
-      showSacredToast("We couldn't send your request. Please try again or contact us on Instagram.");
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-      }
-    }
+  document.querySelectorAll('[data-lucide]').forEach(el => {
+    const iconName = el.getAttribute('data-lucide');
+    const size = el.getAttribute('data-size') || 16;
+    el.innerHTML = lucideIcon(iconName, size);
   });
-}
+
+  const affirmBtn = document.getElementById('cycleAffirmationBtn');
+  const affirmText = document.getElementById('affirmationText');
+  if (affirmBtn && affirmText) {
+    affirmText.textContent = AFFIRMATIONS_DATA[0];
+    affirmBtn.addEventListener('click', () => {
+      currentAffirmationIndex = (currentAffirmationIndex + 1) % AFFIRMATIONS_DATA.length;
+      affirmText.textContent = AFFIRMATIONS_DATA[currentAffirmationIndex];
+      playSacredChime(528);
+    });
+  }
+
+  const soundBtn = document.getElementById('soundToggleBtn');
+  if (soundBtn) {
+    soundBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      soundBtn.innerHTML = soundEnabled
+        ? `${lucideIcon('volume-2', 15)} <span>Chime: On</span>`
+        : `${lucideIcon('volume-x', 15)} <span>Chime: Off</span>`;
+      if (soundEnabled) playSacredChime(528);
+    });
+  }
+
+  // Booking form: send the request to the private Google Sheet via Apps Script.
+  const bookingForm = document.getElementById('sacredBookingForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = bookingForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+
+      const booking = {
+        name: document.getElementById('bookingNameInput')?.value.trim() || '',
+        contact: document.getElementById('bookingContactInput')?.value.trim() || '',
+        service: document.getElementById('bookingServiceSelect')?.value || '',
+        format: document.getElementById('bookingFormatSelect')?.value || '',
+        dob: document.getElementById('bookingDobInput')?.value || '',
+        preferredDate: document.getElementById('bookingDateInput')?.value || '',
+        notes: document.getElementById('bookingNotesInput')?.value.trim() || ''
+      };
+
+      if (!booking.name || !booking.contact || !booking.service || !booking.format) {
+        showSacredToast('Please complete all required booking fields.');
+        return;
+      }
+
+      if (!BOOKING_ENDPOINT.startsWith('https://script.google.com/macros/s/')) {
+        showSacredToast('Booking system is not configured. Please try again later.');
+        return;
+      }
+
+      try {
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+        }
+
+        // Apps Script web apps do not provide a readable CORS response here.
+        // no-cors can submit the request, but the browser cannot confirm server success.
+        await fetch(BOOKING_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(booking)
+        });
+
+        closeBookingModal();
+        playSacredChime(639);
+        showSacredToast(
+          `Thank you, ${booking.name}! Your booking request has been sent. Roli will contact you to confirm the session.`
+        );
+        bookingForm.reset();
+      } catch (error) {
+        console.error('Booking submission failed:', error);
+        showSacredToast('We could not send your request. Please try again or contact us on Instagram.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  }
 
   const header = document.querySelector('.site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
 
   const canvas = document.getElementById('stardustCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
-
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -779,18 +827,17 @@ if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/")) {
 
     function animateStardust() {
       ctx.clearRect(0, 0, width, height);
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.y < -10) p.y = height + 10;
-        if (p.x < -10) p.x = width + 10;
-        if (p.x > width + 10) p.x = -10;
-
+      for (const particle of particles) {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        if (particle.y < -10) particle.y = height + 10;
+        if (particle.x < -10) particle.x = width + 10;
+        if (particle.x > width + 10) particle.x = -10;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.isGold
-          ? `rgba(194, 160, 104, ${p.alpha})`
-          : `rgba(145, 116, 185, ${p.alpha})`;
+        ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+        ctx.fillStyle = particle.isGold
+          ? `rgba(194, 160, 104, ${particle.alpha})`
+          : `rgba(145, 116, 185, ${particle.alpha})`;
         ctx.fill();
       }
       requestAnimationFrame(animateStardust);
