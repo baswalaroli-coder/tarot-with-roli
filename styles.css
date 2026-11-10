@@ -1,52 +1,4 @@
-  .services-grid,
-  .crystal-pillars-grid,
-  .trust-pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stardust-studio-banner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 768px) {
-  .nav-links,
-  .social-pills {
-    display: none;
-  }
-  .mobile-menu-btn {
-    display: inline-flex;
-  }
-  .services-grid,
-  .crystal-pillars-grid,
-  .trust-pillars-grid,
-  .faq-columns-grid,
-  .booking-form-grid,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .oracle-cards-row {
-    flex-wrap: wrap;
-  }
-  .section-padding {
-    padding: 68px 0;
-  }
-  .oracle-sanctuary-box,
-  .about-sanctuary-grid,
-  .instagram-banner-card {
-    padding: 32px 24px;
-  }
-  .contact-buttons-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .contact-pill-btn {
-    justify-content: center;
-  }
-}/* ==========================================================================
+/* ==========================================================================
    TAROTWITHROLI — Serene Lavender & Pearl Spiritual Sanctuary
    Theme: Light, Muted Lavender & Alabaster Pearl ("Light, Not Bright")
    ========================================================================== */
@@ -258,6 +210,13 @@ body {
   display: inline-block;
 }
 
+.energy-ribbon-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .energy-affirmation-btn {
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--border-subtle);
@@ -268,11 +227,35 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .energy-affirmation-btn:hover {
   background: #FFFFFF;
   border-color: var(--accent-amethyst);
+}
+
+.energy-quick-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37, 211, 102, 0.12);
+  color: #128C7E;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.energy-quick-contact:hover {
+  background: #25D366;
+  color: #FFFFFF;
+  border-color: #25D366;
 }
 
 /* ==========================================================================
@@ -342,12 +325,6 @@ body {
   line-height: 1.05;
   color: var(--text-primary);
   white-space: nowrap;
-}
-
-.brand-name span {
-  color: var(--text-primary);
-  font-style: normal;
-  font-weight: 700;
 }
 
 .brand-tagline {
@@ -466,19 +443,6 @@ body {
 .icon-btn-pill:hover {
   background: #FFFFFF;
   border-color: var(--accent-lilac);
-}
-
-.cart-count-badge {
-  background: var(--accent-amethyst);
-  color: #FFFFFF;
-  font-size: 0.7rem;
-  font-weight: 700;
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Primary & Secondary Buttons */
@@ -638,7 +602,7 @@ body {
   margin-bottom: 2px;
 }
 
-/* Hero Right Visual Sanctuary Arch */
+/* Hero Right Visual Sacred Arch (Shape Above) */
 .hero-visual-wrap {
   position: relative;
   display: flex;
@@ -664,10 +628,12 @@ body {
   border: 1px solid rgba(194, 160, 104, 0.22);
 }
 
-.sacred-arch-inner img {
+.sacred-arch-inner img,
+.hero-arch-photo {
   width: 100%;
-  height: 450px;
+  height: 470px;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
   transition: transform 0.7s var(--ease-smooth);
 }
@@ -735,7 +701,7 @@ body {
 
 /* ==========================================================================
    THREE TRUST PILLARS (Psychic Expert • Trusted • Confidential)
-   ========================================================================== */
+   ========================================================================= */
 .trust-pillars-wrap {
   margin-top: 64px;
 }
@@ -954,7 +920,7 @@ body {
 }
 
 /* ==========================================================================
-   OUR SERVICES SECTION (6 Core Offerings from Screenshot 4)
+   OUR SERVICES SECTION
    ========================================================================== */
 .services-grid {
   display: grid;
@@ -1100,7 +1066,7 @@ body {
 }
 
 /* ==========================================================================
-   THE STARDUST STUDIO — ONLINE MYSTIC STORE (From Screenshot 3)
+   THE STARDUST STUDIO — CRYSTAL HEALING & ENERGY GUIDANCE
    ========================================================================== */
 .mystic-store-section {
   background: linear-gradient(180deg, rgba(243, 238, 249, 0.55) 0%, rgba(250, 248, 252, 0.9) 100%);
@@ -1193,7 +1159,6 @@ body {
   object-fit: cover;
 }
 
-/* Three Curated Pillars from Screenshot 3: BY INTENTION | BY CHAKRA | BY HEALING */
 .crystal-pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1267,206 +1232,8 @@ body {
   position: relative;
 }
 
-/* Interactive Crystal Products Showcase */
-.crystal-filter-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.crystal-tabs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.crystal-tab-btn {
-  padding: 9px 20px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
-  background: #FFFFFF;
-  color: var(--text-secondary);
-  font-size: 0.86rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.crystal-tab-btn.active,
-.crystal-tab-btn:hover {
-  background: var(--accent-amethyst);
-  color: #FFFFFF;
-  border-color: var(--accent-amethyst);
-}
-
-.crystal-products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.crystal-product-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  transition: all 0.3s var(--ease-smooth);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-soft);
-}
-
-.crystal-product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--accent-lilac);
-}
-
-.product-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.product-category-badge {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 4px 11px;
-  border-radius: var(--radius-full);
-  background: var(--bg-lavender-mist);
-  color: var(--accent-amethyst);
-  font-weight: 600;
-}
-
-.product-energy-tag {
-  font-size: 0.76rem;
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.product-visual-box {
-  height: 120px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #F8F4FC 0%, #EFE8F8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 18px;
-  border: 1px solid rgba(115, 87, 157, 0.1);
-}
-
-.crystal-product-card h4 {
-  font-family: var(--font-serif);
-  font-size: 1.38rem;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.crystal-product-card p {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin-bottom: 18px;
-}
-
-.product-bottom-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.product-price {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.add-sacred-btn {
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  background: var(--bg-lavender-mist);
-  color: var(--accent-amethyst-deep);
-  border: 1px solid transparent;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.add-sacred-btn:hover {
-  background: var(--accent-amethyst);
-  color: #FFFFFF;
-}
-
 /* ==========================================================================
-   E-BOOKS & SPIRITUAL GUIDES SECTION (From Navbar 'E-books')
-   ========================================================================== */
-.ebooks-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.ebook-card {
-  background: var(--surface-glass-strong);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 30px;
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.35s var(--ease-smooth);
-}
-
-.ebook-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--border-gold);
-}
-
-.ebook-cover-mockup {
-  background: linear-gradient(150deg, #F3ECF9 0%, #E5D7F4 60%, #F2E7D5 100%);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-md);
-  padding: 28px 22px;
-  text-align: center;
-  margin-bottom: 22px;
-  position: relative;
-}
-
-.ebook-cover-mockup span {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--accent-amethyst);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.ebook-cover-mockup h4 {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  color: var(--text-primary);
-  line-height: 1.2;
-}
-
-.ebook-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-}
-
-/* ==========================================================================
-   ABOUT ROLI & SPIRITUAL SANCTUARY SECTION
+   ABOUT ROLI & SPIRITUAL SANCTUARY SECTION (In the Round)
    ========================================================================== */
 .about-sanctuary-grid {
   display: grid;
@@ -1488,17 +1255,24 @@ body {
 .about-avatar-circle {
   width: 100%;
   max-width: 360px;
+  aspect-ratio: 1;
   margin: 0 auto;
   border-radius: 50%;
   padding: 12px;
   background: linear-gradient(135deg, #EFE9F8, #F4E9D8);
-  border: 1px solid var(--border-gold);
+  border: 2px solid var(--border-gold);
   box-shadow: var(--shadow-hover);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-avatar-circle img {
   width: 100%;
+  height: 100%;
   border-radius: 50%;
+  object-fit: cover;
   display: block;
 }
 
@@ -1531,7 +1305,7 @@ body {
 }
 
 /* ==========================================================================
-   INSTAGRAM COMMUNITY BANNER (From Screenshot 1: @tarotwithroli)
+   INSTAGRAM COMMUNITY & CONTACT SECTION (@tarotwithroli)
    ========================================================================== */
 .instagram-banner-card {
   background: linear-gradient(125deg, #FFFFFF 0%, #F5EFFB 48%, #EFE5F8 100%);
@@ -1567,17 +1341,20 @@ body {
   margin-bottom: 22px;
 }
 
+.insta-handle-wrapper {
+  margin-bottom: 18px;
+}
+
 .insta-handle-pill {
   display: inline-flex;
   align-items: center;
   gap: 16px;
   background: #FFFFFF;
   border: 1px solid var(--border-gold);
-  padding: 10px 26px 10px 10px;
+  padding: 10px 24px 10px 10px;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-soft);
   text-decoration: none;
-  margin-bottom: 24px;
   transition: all 0.3s var(--ease-smooth);
 }
 
@@ -1593,6 +1370,7 @@ body {
   border-radius: 50%;
   padding: 3px;
   background: linear-gradient(135deg, #C2A068, #73579D, #D8A9C4);
+  flex-shrink: 0;
 }
 
 .insta-avatar-ring img {
@@ -1601,13 +1379,139 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #FFFFFF;
+  display: block;
+}
+
+.insta-handle-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.insta-handle-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-amethyst);
+  display: block;
+  font-weight: 600;
+}
+
+.insta-handle-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insta-row-icon {
+  color: var(--accent-amethyst);
+  flex-shrink: 0;
 }
 
 .insta-handle-text {
   font-family: var(--font-serif);
-  font-size: 1.75rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1;
+}
+
+/* Direct Contact Buttons (WhatsApp & Call) */
+.contact-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 18px 0 22px;
+}
+
+.contact-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+  white-space: nowrap;
+}
+
+.whatsapp-pill {
+  background: #25D366;
+  color: #FFFFFF;
+  border: 1px solid #1EBE5D;
+  box-shadow: 0 6px 18px -4px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-pill:hover {
+  background: #1EBE5D;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(37, 211, 102, 0.55);
+}
+
+.call-pill {
+  background: linear-gradient(135deg, var(--accent-amethyst) 0%, var(--accent-amethyst-deep) 100%);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-amethyst);
+  box-shadow: 0 6px 18px -4px rgba(88, 62, 126, 0.38);
+}
+
+.call-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(88, 62, 126, 0.48);
+  filter: brightness(1.06);
+  color: #FFFFFF;
+}
+
+/* Verified Social Channels in Position (Facebook, Twitter / X, LinkedIn) */
+.social-channels-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.social-channels-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.social-channels-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.social-channel-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-channel-tag:hover {
+  background: var(--bg-lavender-mist);
+  color: var(--accent-amethyst-deep);
+  border-color: var(--accent-amethyst);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 
 .insta-highlights-list {
@@ -1645,10 +1549,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 /* ==========================================================================
-   FAQ SECTION (All 12 Questions from Screenshot 2 in 2-Column Accordion)
+   FAQ SECTION (All 12 Questions in 2-Column Accordion)
    ========================================================================== */
 .faq-section {
   background: linear-gradient(180deg, #F5EFFB 0%, #FAF8FC 100%);
@@ -1741,7 +1647,7 @@ body {
 }
 
 /* ==========================================================================
-   CLOSING CTA ("Find Clarity and Insight with Tarot" from Screenshot 2)
+   CLOSING CTA ("Find Clarity and Insight with Tarot")
    ========================================================================== */
 .clarity-closing-banner {
   text-align: center;
@@ -1809,6 +1715,29 @@ body {
   color: var(--accent-amethyst);
 }
 
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item:hover {
+  color: var(--accent-amethyst);
+}
+
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
 .footer-bottom {
   padding-top: 28px;
   border-top: 1px solid var(--border-subtle);
@@ -1822,7 +1751,7 @@ body {
 }
 
 /* ==========================================================================
-   MODALS & SACRED BASKET DRAWER
+   MODALS
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
@@ -1974,8 +1903,6 @@ textarea.form-control {
   }
   .services-grid,
   .crystal-pillars-grid,
-  .crystal-products-grid,
-  .ebooks-grid,
   .trust-pillars-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1999,8 +1926,6 @@ textarea.form-control {
   }
   .services-grid,
   .crystal-pillars-grid,
-  .crystal-products-grid,
-  .ebooks-grid,
   .trust-pillars-grid,
   .faq-columns-grid,
   .booking-form-grid,
@@ -2017,5 +1942,12 @@ textarea.form-control {
   .about-sanctuary-grid,
   .instagram-banner-card {
     padding: 32px 24px;
+  }
+  .contact-buttons-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-pill-btn {
+    justify-content: center;
   }
 }
