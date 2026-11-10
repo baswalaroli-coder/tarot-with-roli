@@ -1,3 +1,4 @@
+
 /* ==========================================================================
    TAROTWITHROLI — Dynamic Component & Lucide Icon Sanctuary Engine
    Zero Emojis • Zero Selling Items • 100% Spiritual Guidance & Lucide Icons
@@ -26,6 +27,8 @@ const LUCIDE_PATHS = {
   'heart': '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
   'flower-2': '<path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/>',
   'leaf': '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  'message-circle': '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/>',
+  'phone': '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.08 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.84.57 2.8.69A2 2 0 0 1 22 16.92z"/>',
   'instagram': '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
   'facebook': '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
   'twitter': '<path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>',
@@ -63,11 +66,20 @@ const NAV_LINKS_DATA = [
   { label: "FAQ's", href: "#faqs", active: false }
 ];
 
+// Only verified destinations are shown. Add your own Facebook, X and LinkedIn
+// profile URLs here when available; do not point them to unrelated placeholder pages.
+const CONTACT_DETAILS = {
+  instagram: "https://www.instagram.com/tarotwithroli/",
+  phoneDisplay: "+91 63778 34874",
+  phoneTel: "+916377834874",
+  whatsapp: "https://wa.me/916377834874",
+  profileImage: "assets/roli-profile.jpg"
+};
+
 const SOCIAL_LINKS_DATA = [
-  { name: "Instagram", href: "#instagram", icon: "instagram", title: "Instagram @tarotwithroli" },
-  { name: "Facebook", href: "#instagram", icon: "facebook", title: "Facebook" },
-  { name: "Twitter / X", href: "#instagram", icon: "twitter", title: "Twitter / X" },
-  { name: "LinkedIn", href: "#instagram", icon: "linkedin", title: "LinkedIn" }
+  { name: "Instagram", href: CONTACT_DETAILS.instagram, icon: "instagram", title: "Instagram @tarotwithroli" },
+  { name: "WhatsApp", href: CONTACT_DETAILS.whatsapp, icon: "message-circle", title: "WhatsApp +91 63778 34874" },
+  { name: "Call Roli", href: `tel:${CONTACT_DETAILS.phoneTel}`, icon: "phone", title: "Call +91 63778 34874" }
 ];
 
 const TRUST_PILLARS_DATA = [
@@ -479,7 +491,18 @@ function renderAboutAndInstagramItems() {
         ${lucideIcon(chip.icon, 14)}
         <span>${chip.text}</span>
       </span>
-    `).join('');
+    `).join('') + `
+      <div class="roli-contact-links" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;">
+        <a href="${CONTACT_DETAILS.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram @tarotwithroli" style="display:inline-flex;align-items:center;gap:8px;">
+          ${lucideIcon('instagram', 18)} <span>@tarotwithroli</span>
+        </a>
+        <a href="${CONTACT_DETAILS.whatsapp}" target="_blank" rel="noopener noreferrer" aria-label="Chat with Roli on WhatsApp" style="display:inline-flex;align-items:center;gap:8px;">
+          ${lucideIcon('message-circle', 18)} <span>WhatsApp ${CONTACT_DETAILS.phoneDisplay}</span>
+        </a>
+        <a href="tel:${CONTACT_DETAILS.phoneTel}" aria-label="Call Roli" style="display:inline-flex;align-items:center;gap:8px;">
+          ${lucideIcon('phone', 18)} <span>Call ${CONTACT_DETAILS.phoneDisplay}</span>
+        </a>
+      </div>`;
   }
 }
 
@@ -651,6 +674,25 @@ window.closeBookingModal = function() {
   const modal = document.getElementById('bookingModal');
   if (modal) modal.classList.remove('active');
 };
+// --------------------------------------------------------------------------
+// 5A. Profile image and verified contact destinations
+// Upload the supplied portrait to the repository as assets/roli-profile.jpg.
+// --------------------------------------------------------------------------
+function applyRoliProfilePhoto() {
+  const imageCandidates = Array.from(document.querySelectorAll('img')).filter(img => {
+    const descriptor = `${img.alt || ''} ${img.getAttribute('src') || ''}`.toLowerCase();
+    return descriptor.includes('roli') || descriptor.includes('crystal') || descriptor.includes('tarotwithroli') || descriptor.includes('the star') || descriptor.includes('tarot');
+  });
+
+  imageCandidates.forEach(img => {
+    img.src = CONTACT_DETAILS.profileImage;
+    img.alt = 'Roli, intuitive Tarot reader and spiritual guide';
+    img.loading = 'lazy';
+    img.style.objectFit = 'cover';
+    img.style.objectPosition = 'center 35%';
+    img.style.borderRadius = '50%';
+  });
+}
 
 // --------------------------------------------------------------------------
 // 6. Initialize All Dynamic Views & Event Listeners
@@ -659,6 +701,7 @@ const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXS
 
 document.addEventListener('DOMContentLoaded', () => {
   renderHeaderComponents();
+  applyRoliProfilePhoto();
   renderTrustPillars();
   renderServicesGrid();
   renderCrystalPillars();
