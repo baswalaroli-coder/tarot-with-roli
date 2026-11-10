@@ -241,6 +241,52 @@
     </section>
 
     <!-- ====================================================================
+         SACRED PHOTO GALLERY — ROLI'S CRYSTALS, PORTRAIT & TAROT ART
+         ==================================================================== -->
+    <section class="section-padding roli-photo-gallery" id="photo-gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-badge">
+            <i data-lucide="sparkles" data-size="14"></i>
+            <span>A Glimpse into Our Sacred Space</span>
+          </div>
+          <h2 class="section-title">The <em>Photo Gallery</em></h2>
+          <p class="section-subtitle">A little collection of calm, crystal energy and tarot inspiration from TarotwithRoli.</p>
+        </div>
+        <div class="roli-gallery-grid">
+          <figure class="roli-gallery-card roli-gallery-card-feature">
+            <img src="assets/images/mystic-crystals-collection.jpg" alt="Pastel watercolor amethyst crystals, rose quartz heart, selenite wand, lavender and lotus" loading="lazy" />
+            <figcaption><strong>Crystal Serenity</strong><span>Gentle energy • Peace • Balance</span></figcaption>
+          </figure>
+          <figure class="roli-gallery-card roli-gallery-portrait">
+            <img src="assets/images/roli-homepage-round.png" alt="Roli, your spiritual guide at TarotwithRoli" loading="lazy" />
+            <figcaption><strong>Meet Roli</strong><span>Your guide to gentle clarity</span></figcaption>
+          </figure>
+          <figure class="roli-gallery-card">
+            <img src="assets/images/tarot-hero-sanctuary.jpg" alt="The Star, The Moon and The Empress tarot cards with crystals and lotus flowers" loading="lazy" />
+            <figcaption><strong>Tarot Sanctuary</strong><span>Wisdom • Intuition • Reflection</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .roli-photo-gallery { position: relative; }
+      .roli-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
+      .roli-gallery-card { position:relative; margin:0; min-width:0; overflow:hidden; border:1px solid rgba(190,165,211,.42); border-radius:26px; background:rgba(255,255,255,.78); box-shadow:0 14px 38px rgba(92,66,120,.09); }
+      .roli-gallery-card img { display:block; width:100%; height:310px; object-fit:cover; transition:transform .45s ease; }
+      .roli-gallery-card-feature img { object-fit:cover; }
+      .roli-gallery-portrait { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:22px 16px 0; }
+      .roli-gallery-portrait img { width:min(100%,270px); height:auto; aspect-ratio:1; object-fit:contain; }
+      .roli-gallery-card figcaption { display:flex; flex-direction:column; gap:5px; padding:17px 20px 19px; color:var(--text-primary); }
+      .roli-gallery-card figcaption strong { font-family:var(--font-serif); font-size:1.35rem; font-weight:600; }
+      .roli-gallery-card figcaption span { color:var(--text-secondary); font-size:.82rem; }
+      .roli-gallery-card:hover img { transform:scale(1.035); }
+      @media (max-width: 800px) { .roli-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .roli-gallery-card img { height:250px; } }
+      @media (max-width: 540px) { .roli-gallery-grid { grid-template-columns:1fr; } .roli-gallery-card img { height:auto; max-height:340px; } .roli-gallery-portrait img { width:min(100%,250px); } }
+    </style>
+
+    <!-- ====================================================================
          ABOUT US — MEET ROLI SECTION
          ==================================================================== -->
     <section class="section-padding" id="about">
@@ -248,7 +294,7 @@
         <div class="about-sanctuary-grid">
           <div class="about-avatar-stage">
             <div class="about-avatar-circle">
-              <img src="assets/images/roli-mystic-avatar.jpg" alt="Roli — Intuitive Tarot Reader, Astrologer & Spiritual Guide" />
+              <img src="assets/images/roli-homepage-round.png" alt="Roli — Intuitive Tarot Reader, Astrologer & Spiritual Guide" />
             </div>
           </div>
 
@@ -304,7 +350,7 @@
             <div>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="insta-handle-pill">
                 <div class="insta-avatar-ring">
-                  <img src="assets/images/roli-mystic-avatar.jpg" alt="@tarotwithroli Instagram Avatar" />
+                  <img src="assets/images/roli-homepage-round.png" alt="@tarotwithroli Instagram Avatar" />
                 </div>
                 <div>
                   <span style="font-size:0.74rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-amethyst);display:block;font-weight:600;">Official Community</span>
@@ -319,7 +365,7 @@
 
           <div class="insta-visual-col">
             <div class="insta-healer-circle">
-              <img src="assets/images/roli-mystic-avatar.jpg" alt="Mystic crystal healer illustration for @tarotwithroli" />
+              <img src="assets/images/roli-homepage-round.png" alt="Mystic crystal healer illustration for @tarotwithroli" />
             </div>
           </div>
         </div>
@@ -408,6 +454,7 @@
             <li><a href="#crystal-healing">Crystal Healing By Intention</a></li>
             <li><a href="#crystal-healing">Crystal Healing By Chakra</a></li>
             <li><a href="#crystal-healing">Crystal Healing By Energy</a></li>
+            <li><a href="#photo-gallery">Photo Gallery</a></li>
             <li><a href="#about">About Roli</a></li>
             <li><a href="#faqs">Session FAQ's</a></li>
           </ul>
