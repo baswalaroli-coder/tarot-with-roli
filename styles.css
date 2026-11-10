@@ -1,4 +1,52 @@
-/* ==========================================================================
+  .services-grid,
+  .crystal-pillars-grid,
+  .trust-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stardust-studio-banner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links,
+  .social-pills {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .services-grid,
+  .crystal-pillars-grid,
+  .trust-pillars-grid,
+  .faq-columns-grid,
+  .booking-form-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .oracle-cards-row {
+    flex-wrap: wrap;
+  }
+  .section-padding {
+    padding: 68px 0;
+  }
+  .oracle-sanctuary-box,
+  .about-sanctuary-grid,
+  .instagram-banner-card {
+    padding: 32px 24px;
+  }
+  .contact-buttons-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-pill-btn {
+    justify-content: center;
+  }
+}/* ==========================================================================
    TAROTWITHROLI — Serene Lavender & Pearl Spiritual Sanctuary
    Theme: Light, Muted Lavender & Alabaster Pearl ("Light, Not Bright")
    ========================================================================== */
