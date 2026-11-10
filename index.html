@@ -1,0 +1,559 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TarotwithRoli | Sacred Tarot, Astrology, Numerology &amp; Spiritual Guidance</title>
+  <meta name="description" content="You are the Secret. Let Tarot explore you. Experience serene, confidential Tarot Card Reading, Astrology, Complete Date of Birth Analysis, Past Life Analysis, Yantra Remedy, and Crystal Healing Guidance with Roli." />
+
+  <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Soft Dreamy Lavender & Pearl Background Aura -->
+  <div class="ambient-aura" aria-hidden="true"></div>
+  <canvas id="stardustCanvas" aria-hidden="true"></canvas>
+
+  <!-- Positive Energy Top Affirmation Ribbon -->
+  <div class="energy-Ribbon">
+    <div class="energy-Ribbon-inner">
+      <span class="energy-pulse-dot" aria-hidden="true"></span>
+      <span id="affirmationText">Today's Energy: You are aligned with divine timing, peace, and gentle abundance.</span>
+      <button type="button" class="energy-affirmation-btn" id="cycleAffirmationBtn" style="display:inline-flex;align-items:center;gap:6px;">
+        <i data-lucide="sparkles" data-size="13"></i>
+        <span>New Positive Energy Note</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Glassmorphic Navigation Header -->
+  <header class="site-header" id="top">
+    <div class="container">
+      <nav class="navbar-glass" aria-label="Primary Navigation">
+        <a href="#home" class="brand-logo">
+          <div class="brand-emblem" aria-hidden="true">
+            <i data-lucide="moon-star" data-size="22"></i>
+          </div>
+          <div class="brand-text-wrap">
+            <span class="brand-name">TarotwithRoli</span>
+            <span class="brand-tagline">Sacred Guidance &amp; Healing</span>
+          </div>
+        </a>
+
+        <!-- Dynamically Rendered Navigation Links -->
+        <ul class="nav-links" id="navLinksRoot"></ul>
+
+        <div class="nav-actions">
+          <!-- Dynamically Rendered Social Links -->
+          <div class="social-pills" id="socialPillsRoot" aria-label="Social Media Links"></div>
+
+          <button type="button" class="icon-btn-pill" id="soundToggleBtn" title="Toggle 528Hz Positive Energy Chime">
+            <i data-lucide="volume-2" data-size="15"></i>
+            <span>Chime: On</span>
+          </button>
+
+          <button type="button" class="btn-primary" onclick="openBookingModal('Tarot Card Reading')">
+            <i data-lucide="sparkles" data-size="16"></i>
+            <span>Book Session</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         HERO SECTION ("You are the Secret. Let Tarot explore you")
+         ==================================================================== -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow-badge">
+              <i data-lucide="sparkles" data-size="14"></i>
+              <span>Sacred Intuition • Gentle Clarity • Positive Energy</span>
+            </div>
+
+            <h1 class="hero-title">
+              You are the Secret.<br />
+              <span class="highlight-script">Let Tarot explore you.</span>
+            </h1>
+
+            <p class="hero-description">
+              Explore the many benefits of tarot card readings and how they can provide serene insight, emotional healing, and luminous direction for your life's journey with <strong>Roli</strong>.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#services" class="btn-primary">
+                <i data-lucide="wand-sparkles" data-size="18"></i>
+                <span>Explore Services</span>
+              </a>
+              <a href="#daily-oracle" class="btn-secondary">
+                <i data-lucide="sparkles" data-size="17"></i>
+                <span>Draw Your Free Daily Card</span>
+              </a>
+            </div>
+
+            <div class="hero-positive-note">
+              <div class="hero-note-icon" aria-hidden="true">
+                <i data-lucide="shield-check" data-size="22"></i>
+              </div>
+              <div class="hero-note-text">
+                <strong>A Calm, High-Vibration Sanctuary</strong>
+                Every session with Roli is held in a soothing, judgment-free space designed to leave you feeling lighter, empowered, and deeply at peace.
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-wrap">
+            <div class="sacred-arch-frame">
+              <div class="sacred-arch-inner">
+                <img src="assets/images/tarot-hero-sanctuary.jpg" alt="Sacred Tarot Cards — The Star, The Moon, and The Empress surrounded by amethyst crystals and white lotus blossoms" />
+              </div>
+
+              <div class="floating-aura-card top-left">
+                <div class="aura-badge-icon">
+                  <i data-lucide="sparkles" data-size="18"></i>
+                </div>
+                <div class="aura-badge-info">
+                  <span>Energy Frequency</span>
+                  <strong>Pure Serenity &amp; Light</strong>
+                </div>
+              </div>
+
+              <div class="floating-aura-card bottom-right">
+                <div class="aura-badge-icon">
+                  <i data-lucide="flower-2" data-size="18"></i>
+                </div>
+                <div class="aura-badge-info">
+                  <span>Guided by Roli</span>
+                  <strong>5,000+ Souls Guided</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamically Rendered Three Core Trust Pillars -->
+        <div class="trust-pillars-wrap">
+          <div class="trust-pillars-grid" id="trustPillarsRoot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         INTERACTIVE DAILY POSITIVE ENERGY & TAROT PULL
+         ==================================================================== -->
+    <section class="daily-oracle-section" id="daily-oracle">
+      <div class="container">
+        <div class="oracle-sanctuary-box">
+          <div class="oracle-layout">
+            <div>
+              <div class="eyebrow-badge">
+                <i data-lucide="sparkles" data-size="14"></i>
+                <span>Interactive Positive Energy Ritual</span>
+              </div>
+              <h2 class="section-title" style="text-align:left;">
+                Receive Today's <em>Sacred Message</em>
+              </h2>
+              <p class="section-subtitle" style="text-align:left;margin-bottom:20px;">
+                Take a gentle breath, center your heart, and tap one of the three sacred cards on the right. Let Roli's curated tarot wisdom bring you an instant spark of peace and clarity.
+              </p>
+              <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:0.86rem;color:var(--accent-amethyst-deep);">
+                <span style="display:inline-flex;align-items:center;gap:6px;">
+                  <i data-lucide="volume-2" data-size="15"></i>
+                  <span>Infused with 528Hz Solfeggio Chime</span>
+                </span>
+                <span>•</span>
+                <span style="display:inline-flex;align-items:center;gap:6px;">
+                  <i data-lucide="gem" data-size="15"></i>
+                  <span>Includes Crystal Energy Alignment</span>
+                </span>
+              </div>
+
+              <div class="oracle-reading-result" id="oracleReadingResult" aria-live="polite"></div>
+            </div>
+
+            <div>
+              <!-- Dynamically Rendered 3-Card Tarot Spread -->
+              <div class="oracle-cards-row" id="oracleCardsRow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         OUR SERVICES SECTION (Dynamically Rendered 6 Services)
+         ==================================================================== -->
+    <section class="section-padding" id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-badge">
+            <i data-lucide="sparkles" data-size="14"></i>
+            <span>Sacred Offerings</span>
+          </div>
+          <h2 class="section-title">Our <em>Services</em></h2>
+          <p class="section-subtitle">
+            Personal, deeply intuitive sessions tailored to illuminate your path, harmonize planetary energies, and bring gentle transformation.
+          </p>
+        </div>
+
+        <div class="services-grid" id="servicesGridRoot"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         THE STARDUST STUDIO — CRYSTAL HEALING & ENERGY GUIDANCE (Non-Commercial)
+         ==================================================================== -->
+    <section class="section-padding mystic-store-section" id="crystal-healing">
+      <div class="container">
+        <div class="stardust-studio-banner">
+          <div class="stardust-emblem-circle">
+            <i data-lucide="flower-2" data-size="36"></i>
+            <strong>The Stardust Studio</strong>
+            <span>By Roli</span>
+          </div>
+
+          <div class="stardust-banner-copy">
+            <div class="welcome-kicker">Welcome to our crystal healing sanctuary</div>
+            <h2>The Stardust Studio</h2>
+            <p>
+              Discover the power of crystal healing and vibrational alignment. Explore how sacred crystals harmonize your intentions, chakras, and emotional well-being on your journey to a healthier, happier you.
+            </p>
+          </div>
+
+          <div class="stardust-banner-art">
+            <img src="assets/images/mystic-crystals-collection.jpg" alt="Watercolor crystals, amethyst cluster, rose quartz heart, selenite wand and lotus flower" />
+          </div>
+        </div>
+
+        <!-- Dynamically Rendered 3 Crystal Healing Pathways (BY INTENTION | BY CHAKRA | BY HEALING) -->
+        <div class="crystal-pillars-grid" id="crystalPillarsRoot" style="margin-bottom:0;"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SACRED PHOTO GALLERY — ROLI'S CRYSTALS, PORTRAIT & TAROT ART
+         ==================================================================== -->
+    <section class="section-padding roli-photo-gallery" id="photo-gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-badge">
+            <i data-lucide="sparkles" data-size="14"></i>
+            <span>A Glimpse into Our Sacred Space</span>
+          </div>
+          <h2 class="section-title">The <em>Photo Gallery</em></h2>
+          <p class="section-subtitle">A little collection of calm, crystal energy and tarot inspiration from TarotwithRoli.</p>
+        </div>
+        <div class="roli-gallery-grid">
+          <figure class="roli-gallery-card roli-gallery-card-feature">
+            <img src="assets/images/mystic-crystals-collection.jpg" alt="Pastel watercolor amethyst crystals, rose quartz heart, selenite wand, lavender and lotus" loading="lazy" />
+            <figcaption><strong>Crystal Serenity</strong><span>Gentle energy • Peace • Balance</span></figcaption>
+          </figure>
+          <figure class="roli-gallery-card roli-gallery-portrait">
+            <img src="assets/images/roli-homepage-round.png" alt="Roli, your spiritual guide at TarotwithRoli" loading="lazy" />
+            <figcaption><strong>Meet Roli</strong><span>Your guide to gentle clarity</span></figcaption>
+          </figure>
+          <figure class="roli-gallery-card">
+            <img src="assets/images/tarot-hero-sanctuary.jpg" alt="The Star, The Moon and The Empress tarot cards with crystals and lotus flowers" loading="lazy" />
+            <figcaption><strong>Tarot Sanctuary</strong><span>Wisdom • Intuition • Reflection</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .roli-photo-gallery { position: relative; }
+      .roli-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; align-items:stretch; }
+      .roli-gallery-card { position:relative; margin:0; min-width:0; overflow:hidden; border:1px solid rgba(190,165,211,.42); border-radius:26px; background:rgba(255,255,255,.78); box-shadow:0 14px 38px rgba(92,66,120,.09); }
+      .roli-gallery-card img { display:block; width:100%; height:310px; object-fit:cover; transition:transform .45s ease; }
+      .roli-gallery-card-feature img { object-fit:cover; }
+      .roli-gallery-portrait { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:22px 16px 0; }
+      .roli-gallery-portrait img { width:min(100%,270px); height:auto; aspect-ratio:1; object-fit:contain; }
+      .roli-gallery-card figcaption { display:flex; flex-direction:column; gap:5px; padding:17px 20px 19px; color:var(--text-primary); }
+      .roli-gallery-card figcaption strong { font-family:var(--font-serif); font-size:1.35rem; font-weight:600; }
+      .roli-gallery-card figcaption span { color:var(--text-secondary); font-size:.82rem; }
+      .roli-gallery-card:hover img { transform:scale(1.035); }
+      @media (max-width: 800px) { .roli-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .roli-gallery-card img { height:250px; } }
+      @media (max-width: 540px) { .roli-gallery-grid { grid-template-columns:1fr; } .roli-gallery-card img { height:auto; max-height:340px; } .roli-gallery-portrait img { width:min(100%,250px); } }
+    </style>
+
+    <!-- ====================================================================
+         ABOUT US — MEET ROLI SECTION
+         ==================================================================== -->
+    <section class="section-padding" id="about">
+      <div class="container">
+        <div class="about-sanctuary-grid">
+          <div class="about-avatar-stage">
+            <div class="about-avatar-circle">
+              <img src="assets/images/roli-homepage-round.png" alt="Roli — Intuitive Tarot Reader, Astrologer & Spiritual Guide" />
+            </div>
+          </div>
+
+          <div>
+            <div class="eyebrow-badge">
+              <i data-lucide="sparkles" data-size="14"></i>
+              <span>Meet Your Spiritual Guide</span>
+            </div>
+            <h2 class="section-title" style="text-align:left;">
+              Welcome to TarotwithRoli
+            </h2>
+            <p style="font-size:1.02rem;color:var(--text-secondary);margin-bottom:16px;">
+              Hello beautiful soul, I am <strong>Roli</strong>. My mission is to bring gentle clarity, emotional comfort, and empowering spiritual direction to everyone who enters this sanctuary.
+            </p>
+            <p style="font-size:0.96rem;color:var(--text-secondary);margin-bottom:20px;">
+              Whether you are navigating a crossroads in love, seeking career alignment, curious about your complete Date of Birth numbers, or looking for soothing crystal &amp; Yantra remedies, every session is conducted with warmth, honesty, and 100% confidentiality.
+            </p>
+
+            <!-- Dynamically Rendered About Stats -->
+            <div class="about-stats-row" id="aboutStatsRoot"></div>
+
+            <div style="display:flex;gap:14px;flex-wrap:wrap;">
+              <button type="button" class="btn-primary" onclick="openBookingModal('Tarot Card Reading')">
+                <i data-lucide="calendar-days" data-size="16"></i>
+                <span>Book a 1-on-1 Session with Roli</span>
+              </button>
+              <a href="#faqs" class="btn-secondary">Read Session FAQs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CONNECT WITH US ON INSTAGRAM BANNER (@tarotwithroli)
+         ==================================================================== -->
+    <section class="section-padding" id="instagram" style="padding-top:20px;">
+      <div class="container">
+        <div class="instagram-banner-card">
+          <div>
+            <div class="eyebrow-badge">
+              <i data-lucide="sparkles" data-size="14"></i>
+              <span>Daily Collective Readings &amp; Positive Energy</span>
+            </div>
+
+            <h2 class="insta-script-heading">Connect with us on</h2>
+
+            <div class="insta-platform-row">
+              <i data-lucide="instagram" data-size="26"></i>
+              <span>Instagram</span>
+            </div>
+
+            <div>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="insta-handle-pill">
+                <div class="insta-avatar-ring">
+                  <img src="assets/images/roli-homepage-round.png" alt="@tarotwithroli Instagram Avatar" />
+                </div>
+                <div>
+                  <span style="font-size:0.74rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-amethyst);display:block;font-weight:600;">Official Community</span>
+                  <span class="insta-handle-text">@tarotwithroli</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Dynamically Rendered Instagram Highlight Chips -->
+            <div class="insta-highlights-list" id="instaHighlightsRoot"></div>
+          </div>
+
+          <div class="insta-visual-col">
+            <div class="insta-healer-circle">
+              <img src="assets/images/roli-homepage-round.png" alt="Mystic crystal healer illustration for @tarotwithroli" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FAQ'S SECTION (Dynamically Rendered 12-Question 2-Column Accordion)
+         ==================================================================== -->
+    <section class="section-padding faq-section" id="faqs">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow-badge">
+            <i data-lucide="sparkles" data-size="14"></i>
+            <span>Everything You Need to Know</span>
+          </div>
+          <h2 class="section-title">FAQ's</h2>
+          <p class="section-subtitle">
+            Clear answers to common questions about booking a reading with Roli, urgent sessions, audio formats, and session policies.
+          </p>
+        </div>
+
+        <div class="faq-columns-grid" id="faqColumnsRoot"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         CLOSING BANNER ("Find Clarity and Insight with Tarot")
+         ==================================================================== -->
+    <section class="section-padding" style="padding-top:30px;padding-bottom:60px;">
+      <div class="container">
+        <div class="clarity-closing-banner">
+          <div class="eyebrow-badge">
+            <i data-lucide="sparkles" data-size="14"></i>
+            <span>Begin Your Healing Journey</span>
+          </div>
+          <h2>Find Clarity and Insight with Tarot</h2>
+          <p>
+            Step into a peaceful space of positive energy, spiritual wisdom, and gentle answers with <strong>TarotwithRoli</strong>.
+          </p>
+          <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+            <button type="button" class="btn-primary" onclick="openBookingModal('Tarot Card Reading')">
+              <i data-lucide="wand-sparkles" data-size="17"></i>
+              <span>Book Your Reading Now</span>
+            </button>
+            <a href="#services" class="btn-secondary">
+              <i data-lucide="sparkles" data-size="17"></i>
+              <span>Explore Our Services</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       SITE FOOTER
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#home" class="brand-logo" style="margin-bottom:14px;">
+            <div class="brand-emblem" aria-hidden="true">
+              <i data-lucide="moon-star" data-size="20"></i>
+            </div>
+            <div class="brand-text-wrap">
+              <span class="brand-name">TarotwithRoli</span>
+              <span class="brand-tagline">Sacred Guidance &amp; Healing</span>
+            </div>
+          </a>
+          <p style="font-size:0.9rem;color:var(--text-secondary);max-width:320px;">
+            A serene, confidential sanctuary for Tarot Card Reading, Vedic Astrology, Complete Date of Birth Analysis, Past Life Healing, Yantra Remedies, and Crystal Healing Guidance.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <!-- Dynamically Rendered Footer Service Links -->
+          <ul class="footer-links" id="footerServicesRoot"></ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sacred Sanctuary</h4>
+          <ul class="footer-links">
+            <li><a href="#crystal-healing">Crystal Healing By Intention</a></li>
+            <li><a href="#crystal-healing">Crystal Healing By Chakra</a></li>
+            <li><a href="#crystal-healing">Crystal Healing By Energy</a></li>
+            <li><a href="#photo-gallery">Photo Gallery</a></li>
+            <li><a href="#about">About Roli</a></li>
+            <li><a href="#faqs">Session FAQ's</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect with Roli</h4>
+          <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:14px;">
+            Follow <strong>@tarotwithroli</strong> on Instagram for daily positive energy affirmations, collective tarot pulls, and spiritual guidance.
+          </p>
+          <button type="button" class="btn-primary" style="width:100%;" onclick="openBookingModal('Tarot Card Reading')">
+            <i data-lucide="calendar-days" data-size="16"></i>
+            <span>Book a Session</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 TarotwithRoli. Crafted with Positive Energy &amp; Serenity.</span>
+        <span>100% Confidential • Psychic Expert • Trusted Sanctuary</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       INTERACTIVE SESSION BOOKING MODAL
+       ==================================================================== -->
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close Modal">
+        <i data-lucide="x" data-size="18"></i>
+      </button>
+      <div class="modal-header-symmetric">
+        <div class="eyebrow-badge">
+          <i data-lucide="shield-check" data-size="14"></i>
+          <span>100% Confidential Consultation</span>
+        </div>
+        <h3 id="bookingModalTitle" style="font-family:var(--font-serif);font-size:2.05rem;color:var(--text-primary);margin-bottom:8px;">
+          Book Your Sacred Session with Roli
+        </h3>
+        <p style="font-size:0.9rem;color:var(--text-secondary);">
+          Select your desired service and session format below. Both regular and urgent/immediate basis slots are available.
+        </p>
+      </div>
+
+      <form id="sacredBookingForm" class="booking-form-grid">
+        <div class="form-group">
+          <label for="bookingNameInput">Your Full Name *</label>
+          <input type="text" id="bookingNameInput" class="form-control" placeholder="e.g., Ananya Sharma" required />
+        </div>
+
+        <div class="form-group">
+          <label for="bookingContactInput">WhatsApp / Phone / Email *</label>
+          <input type="text" id="bookingContactInput" class="form-control" placeholder="+91 98765 43210" required />
+        </div>
+
+        <div class="form-group">
+          <label for="bookingServiceSelect">Select Service *</label>
+          <select id="bookingServiceSelect" class="form-control"></select>
+        </div>
+
+        <div class="form-group">
+          <label for="bookingFormatSelect">Session Format &amp; Urgency *</label>
+          <select id="bookingFormatSelect" class="form-control"></select>
+        </div>
+
+        <div class="form-group">
+          <label for="bookingDobInput">Date of Birth (Optional)</label>
+          <input type="date" id="bookingDobInput" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="bookingDateInput">Preferred Session Date</label>
+          <input type="date" id="bookingDateInput" class="form-control" />
+        </div>
+
+        <div class="form-group full-width">
+          <label for="bookingNotesInput">Your Questions / Intention for Roli</label>
+          <textarea id="bookingNotesInput" class="form-control" rows="3" placeholder="Share any questions or life areas (love, career, healing, remedies) you would like Roli to focus on..."></textarea>
+        </div>
+
+        <div class="form-group full-width" style="margin-top:8px;">
+          <button type="submit" class="btn-primary" style="width:100%;">
+            <i data-lucide="check-circle-2" data-size="17"></i>
+            <span>Confirm Booking Request with Roli</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="sacred-toast" id="sacredToast" role="status" aria-live="polite">
+    <span style="color:var(--accent-amethyst);display:inline-flex;align-items:center;">
+      <i data-lucide="check-circle-2" data-size="20"></i>
+    </span>
+    <span id="sacredToastText" style="font-size:0.9rem;font-weight:500;color:var(--text-primary);"></span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
