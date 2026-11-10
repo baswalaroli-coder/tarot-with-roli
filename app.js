@@ -651,49 +651,12 @@ window.closeBookingModal = function() {
   const modal = document.getElementById('bookingModal');
   if (modal) modal.classList.remove('active');
 };
-elect the damaged section from there to the final }); at the bottom of the file. --------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  renderHeaderComponents();
-  renderTrustPillars();
-  renderServicesGrid();
-  renderCrystalPillars();
-  renderAboutAndInstagramItems();
-  renderFaqColumns();
-  renderFooterAndModalSelects();
-  renderOracleSpread();
-
-  document.querySelectorAll('[data-lucide]').forEach(el => {
-    const iconName = el.getAttribute('data-lucide');
-    const size = el.getAttribute('data-size') || 16;
-if (!BOOKING_ENDPOINT.startsWith("https://script.google.com/macros/s/")) {
-   });
-
-  const affirmBtn = document.getElementById('cycleAffirmationBtn');
-  const affirmText = document.getElementById('affirmationText');
-  if (affirmBtn && affirmText) {
-    affirmText.textContent = AFFIRMATIONS_DATA[0];
-    affirmBtn.addEventListener('click', () => {
-      currentAffirmationIndex = (currentAffirmationIndex + 1) % AFFIRMATIONS_DATA.length;
-      affirmText.textContent = AFFIRMATIONS_DATA[currentAffirmationIndex];
-      playSacredChime(528);
-    });
-  }
-
-  const soundBtn = document.getElementById('soundToggleBtn');
-  if (soundBtn) {
-    soundBtn.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      soundBtn.innerHTML = soundEnabled
-        ? `${lucideIcon('volume-2', 15)} <span>Chime: On</span>`
-        : `${lucideIcon('volume-x', 15)} <span>Chime: Off</span>`;
-      if (soundEnabled) playSacredChime(528);
-    });
-  }
-const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
 
 // --------------------------------------------------------------------------
 // 6. Initialize All Dynamic Views & Event Listeners
 // --------------------------------------------------------------------------
+const BOOKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbyEN-XlBJ_vcXSh28nvdpH8Cpb9iOt1c-BRHfZ_k01Fb2WNqoI1SkvbZkPtgGMbU7Jy/exec";
+
 document.addEventListener('DOMContentLoaded', () => {
   renderHeaderComponents();
   renderTrustPillars();
@@ -767,8 +730,8 @@ document.addEventListener('DOMContentLoaded', () => {
           submitButton.textContent = 'Sending...';
         }
 
-        // Apps Script web apps do not provide a readable CORS response here.
-        // no-cors can submit the request, but the browser cannot confirm server success.
+        // Apps Script does not expose a readable CORS response to this page.
+        // This sends the request, but the browser cannot verify server success.
         await fetch(BOOKING_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
@@ -810,6 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
+
     window.addEventListener('resize', () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -833,6 +797,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (particle.y < -10) particle.y = height + 10;
         if (particle.x < -10) particle.x = width + 10;
         if (particle.x > width + 10) particle.x = -10;
+
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
         ctx.fillStyle = particle.isGold
@@ -842,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       requestAnimationFrame(animateStardust);
     }
+
     animateStardust();
   }
 });
